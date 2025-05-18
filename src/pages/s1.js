@@ -30,7 +30,7 @@ const navigate = useNavigate();
   const [ready, setReady] = useState("notok");
 
   // Example endpoint, replace with your API or process.env.REACT_APP_API_URL
-  const API_URL = "http://127.0.0.1:8000/predict";
+  const API_URL = "https://us-central1-leaf-intel-model.cloudfunctions.net/predict";
 
   // Handler for drag-and-drop or file selection
   const onDrop = useCallback((acceptedFiles) => {

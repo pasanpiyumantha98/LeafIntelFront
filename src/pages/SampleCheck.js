@@ -44,7 +44,7 @@ export default function WebcamSampleCheck() {
 
   },[]);
 
-  const API_URL = "http://127.0.0.1:8000/predict";
+  const API_URL = "https://us-central1-leaf-intel-model.cloudfunctions.net/predict";
 
   const capture = useCallback(() => {
     const screenshot = webcamRef.current.getScreenshot();
@@ -84,7 +84,7 @@ export default function WebcamSampleCheck() {
       const res = await axios.post(API_URL, formData);
       if (res.status === 200) {
         setData(res.data);
-        const response = await axios.get(`/api/lotsfind/${lotid}`);
+        const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/lotsfind/${lotid}`);
         let point = 0;
         if (res.data.class === "a") point = response.data.AccQty * 25;
         else if (res.data.class === "b") point = response.data.AccQty * 15;
