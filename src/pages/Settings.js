@@ -281,7 +281,7 @@ function Settings(){
     {/* Paying Rate */}
     <div className="row mb-3">
       <label htmlFor="username" className="col-sm-4 col-form-label">
-        Paying Rate LKR
+        Paying Rate (LKR)
       </label>
       <div className="col-sm-8">
         <input
@@ -300,7 +300,7 @@ function Settings(){
     {/* Maximum advance amount */}
     <div className="row mb-3">
       <label htmlFor="email" className="col-sm-4 col-form-label">
-        Maximum Advance Amount LKR
+        Maximum Advance Amount (LKR)
       </label>
       <div className="col-sm-8">
         <input
@@ -318,7 +318,7 @@ function Settings(){
     </div>
     <div className="row mb-3">
       <label htmlFor="email" className="col-sm-4 col-form-label">
-        Daily Goal Kg
+        Daily Goal (Kg)
       </label>
       <div className="col-sm-8">
         <input
@@ -337,7 +337,7 @@ function Settings(){
 
     <div className="row mb-3">
       <label htmlFor="email" className="col-sm-4 col-form-label">
-        Monthly Goal Kg
+        Monthly Goal (Kg)
       </label>
       <div className="col-sm-8">
         <input
@@ -356,7 +356,7 @@ function Settings(){
 
     <div className="row mb-3">
       <label htmlFor="email" className="col-sm-4 col-form-label">
-        Yearly Goal Kg
+        Yearly Goal (Kg)
       </label>
       <div className="col-sm-8">
         <input
