@@ -32,7 +32,7 @@ function SupProfile(){
     const loadSupplier = async() =>{
 
         
-    const response = await axios.get(`/leafintelbackend-production.up.railway.app/api/supplier/${SupId}`);
+    const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/supplier/${SupId}`);
 
     const supplier = response.data;
 
@@ -50,7 +50,7 @@ useEffect(()=>{
   const loadMonthQty = async() =>{
 
       
-  const response = await axios.get(`/leafintelbackend-production.up.railway.app/api/supplier/qty/${SupId}`);
+  const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/supplier/qty/${SupId}`);
 
   const qty = response.data;
 

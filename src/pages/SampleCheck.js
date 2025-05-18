@@ -44,7 +44,7 @@ export default function WebcamSampleCheck() {
 
   },[]);
 
-  const API_URL = "https://us-central1-leaf-intel-model.cloudfunctions.net/predict";
+  const API_URL = "http://127.0.0.1:8000/predict";
 
   const capture = useCallback(() => {
     const screenshot = webcamRef.current.getScreenshot();
