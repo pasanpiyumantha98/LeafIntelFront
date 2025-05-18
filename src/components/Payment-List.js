@@ -12,7 +12,7 @@ function PaymentList() {
 
   useEffect(() => {
     const loadPayments = async () => {
-      const response = await axios.get('/api/payments');
+      const response = await axios.get('https://leafintelbackend-production.up.railway.app/api/payments');
       setPayInfo(response.data);
     };
 

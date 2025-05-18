@@ -61,7 +61,7 @@ function Header() {
             <span>Suppliers</span>
           </a>
 
-          {(user.accessLevel === "Manager" || user.accessLevel === "Billing") && (
+          {(user.accessLevel === "Manager" || user.accessLevel === "Billing Clerk") && (
             <a href="/billing" className="nav-item">
               <FontAwesomeIcon icon={faMoneyBill} className="icon" />
               <span>Billing</span>

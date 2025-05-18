@@ -21,7 +21,7 @@ function Login()
     async function submitlogin()
     {
       
-        const person = await axios.post(`/login/go`,{uname:uname,pass:pass})
+        const person = await axios.post(`https://leafintelbackend-production.up.railway.app/login/go`,{uname:uname,pass:pass})
 
         if(person.data.NIC)
         {

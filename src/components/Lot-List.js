@@ -12,7 +12,7 @@ function LotList() {
 
   useEffect(() => {
     const loadLots = async () => {
-      const response = await axios.get('/api/lots');
+      const response = await axios.get('https://leafintelbackend-production.up.railway.app/api/lots');
       setLotInfo(response.data);
     };
     loadLots();

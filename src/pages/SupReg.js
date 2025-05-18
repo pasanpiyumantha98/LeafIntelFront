@@ -54,7 +54,7 @@ function SupReg(){
     formData.append('pic', pic);
 
     const response = await axios.post(
-      '/suppliers-registration/go', 
+      'https://leafintelbackend-production.up.railway.app/suppliers-registration/go', 
       formData, 
       {
         headers: {

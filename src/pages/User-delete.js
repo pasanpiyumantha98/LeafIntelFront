@@ -14,7 +14,7 @@ function UserDelete() {
   useEffect(() => {
     const deleteUser = async () => {
       try {
-        const response = await axios.delete(`/api/user-delete/${id}`);
+        const response = await axios.delete(`https://leafintelbackend-production.up.railway.app/api/user-delete/${id}`);
         if (response.status === 200) {
           setIsDeleted(true); // Mark user as deleted
         }

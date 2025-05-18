@@ -15,7 +15,7 @@ function UsersList()
         const loadSupplier = async() =>{
     
             
-        const response = await axios.get(`/api/users`);
+        const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/users`);
     
         const users = response.data;
     

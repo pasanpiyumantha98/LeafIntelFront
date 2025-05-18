@@ -27,7 +27,7 @@ function SupDelete(){
     const supplierdelete = async() =>{
 
         
-    await axios.get(`/api/supplier-delete/${SupId}`);
+    await axios.get(`https://leafintelbackend-production.up.railway.app/api/supplier-delete/${SupId}`);
 
     
 

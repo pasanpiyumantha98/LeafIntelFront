@@ -30,7 +30,7 @@ if(fname===""|lname===""|email===""|pass===""|city===""|gender==="")
 
 } else
 {
-const response = await axios.post(`/signup/go`, {fname:fname,lname:lname,city:city,gender:gender,email:email,pass:pass});
+const response = await axios.post(`https://leafintelbackend-production.up.railway.app/signup/go`, {fname:fname,lname:lname,city:city,gender:gender,email:email,pass:pass});
 
 
 const stat=response.data;

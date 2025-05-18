@@ -31,7 +31,7 @@ function Users(){
       navigate('/users');
     } else {
       try {
-        await axios.get(`/api/user-delete/${userid}`);
+        await axios.get(`https://leafintelbackend-production.up.railway.app/api/user-delete/${userid}`);
         toast.success("User removed!");
 
       } catch (error) {

@@ -1,5 +1,5 @@
 import '../App.css';
-import { Link,useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,7 +8,6 @@ import Header from '../components/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faMoneyBill1,faCheck, faDeleteLeft, faMoneyBillTransfer } from '@fortawesome/free-solid-svg-icons';
 import { useEffect } from 'react';
-import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BillingChart from '../components/BillingChart';
@@ -21,14 +20,21 @@ import PaymentList from '../components/Payment-List';
 
 function Billing(){
 
-  const [supid, setsupid] = useState("");
+  
   const [SuppId, setSuppID] = useState("");
   const [ammount, setAmount] =useState("");
   const [TID, setTID] =useState("");
+  const [Year, setYear] =useState("");
+  const [ConsYear, setConsYear] =useState("");
+  const [ConsMonth, setConsMonth] =useState("");
+  const [Month, setMonth] =useState("");
   const [Rate, setRate] =useState("Loading..");
   const [MaxAdvance, setMaxAdvance] =useState("Loading..");
   const [LastPayment, setLastPayment] =useState("Loading..");
   const [ThisPayments, setThisPayments] =useState("Loading..");
+
+
+ 
 
   
   const navigate = useNavigate();
@@ -38,34 +44,44 @@ function Billing(){
     const loadTopSup = async()=>{
 
 
-      const response = await axios.get(`/api/settings/rate`);
+      const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/settings/rate`);
 
       const rate = response.data;
 
       setRate(rate.Value);
 
 
-      const response3 = await axios.get(`/api/settings/maxadvance`);
+      const response3 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/settings/maxadvance`);
 
       const mxadvnce = response3.data;
   
       setMaxAdvance(mxadvnce.Value);
 
       
-      const response4 = await axios.get(`/api/payments/last`);
+      const response4 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/payments/last`);
 
       const lpayment = response4.data;
   
       setLastPayment(lpayment);
 
 
-      const response5 = await axios.get(`/api/payments/thismonth`);
+      const response5 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/payments/thismonth`);
 
       const thisMonth = response5.data;
   
       setThisPayments(thisMonth);
 
-      
+
+      // Loadindg month and year for supplier payments selection
+       const currentDate = new Date();
+       let date = currentDate.getDate();;
+       let month = currentDate.getMonth(); 
+       let year = currentDate.getFullYear();
+
+       setYear(year);
+       setConsYear(year);
+       setMonth(month)
+       setConsMonth(month + 1)
 
 
     };
@@ -85,7 +101,7 @@ function Billing(){
 
     const un = user.UserName;
 
-      const response = await axios.get(`/api/advance/elg/${SuppId}/${ammount}/${un}`)
+      const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/advance/elg/${SuppId}/${ammount}/${un}`)
 
       const TransId = response.data;
 
@@ -116,7 +132,7 @@ function Billing(){
 
     } else {
 
-      const response = await axios.get(`/api/transaction/${TID}`)
+      const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/transaction/${TID}`)
 
       const Transaction = response.data;
 
@@ -137,13 +153,20 @@ function Billing(){
   async function validatePayment()
   {
 
-    if(SuppId=="")
+    if(SuppId=="" || Year=="")
     {
-      toast.error("Supplier ID is needed!");
+      toast.error("Enter detailes for the payment!");
 
-    } else {
+    } else if(Year>ConsYear || Year<2020 || isNaN(Year))
+    {
+      toast.error("Enter a valid year!");
 
-      const response = await axios.get(`/api/supplier/payment/${SuppId}`) 
+    } 
+    else
+    
+    {
+
+      const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/supplier/payment/${SuppId}/${Year}/${Month}`) 
 
       const Payable = response.data;
 
@@ -238,26 +261,65 @@ function Billing(){
      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
    </div>
 
-   <div class="modal-body">
-   
-   <label>Supplier ID :&ensp; &ensp;</label>
-        <input
-          className="inputfsmall"
-          type="text"
-          placeholder="Supplier ID"
-          name="ID"
-          value={SuppId}
-          onChange={(q) => setSuppID(q.target.value)}
-          required
-        />
+  <div className="modal-body">
+  <form className="form-layout">
 
-        <br />
+    <div className="form-group">
+      <label>Supplier ID: &ensp; </label>
+      <input
+        className="inputfsmall"
+        type="text"
+        placeholder="Supplier ID"
+        name="ID"
+        value={SuppId}
+        onChange={(q) => setSuppID(q.target.value)}
+        required
+      />
+    </div>
 
-        
+    
 
+    <div className="form-group">
+      <label>Year:&ensp; &ensp;&ensp; &ensp;&ensp; &ensp;</label>
+      <input
+        className="inputfsmall"
+        type="text"
+        placeholder="Year"
+        name="Year"
+        value={Year}
+        onChange={(q) => setYear(q.target.value)}
+        required
+      />
+    </div>
 
-    <br/><a onClick={validatePayment} data-bs-dismiss="modal" class="success padl nounder">Finalize</a>
-   </div>
+    <div className="form-group">
+      <label>Month:&ensp; &ensp;&ensp; &ensp;</label>
+      <select value={Month} onChange={(q) => setMonth(q.target.value)}>
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+    </div>
+    <br></br>
+
+    <div className="form-actions">
+      <a onClick={validatePayment} data-bs-dismiss="modal" className="success padl nounder">
+        Finalize
+      </a>
+    </div>
+
+  </form>
+</div>
+
 
    
 

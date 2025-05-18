@@ -28,7 +28,7 @@ function Suppliers(){
     const loadSupplier = async() =>{
 
         
-    const response = await axios.get(`/api/suppliers`);
+    const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/suppliers`);
 
     const supplier = response.data;
 

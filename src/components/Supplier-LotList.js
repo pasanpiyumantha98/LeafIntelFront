@@ -17,7 +17,7 @@ function SupplierLotList(props)
         const loadLots = async() =>{
     
             
-        const response = await axios.get(`/api/supplier/lots/${id}`);
+        const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/supplier/lots/${id}`);
     
         const lots = response.data;
     

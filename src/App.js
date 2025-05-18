@@ -48,7 +48,7 @@ function App() {
         <Route
           path="/dashboard"
           element={
-            <RequireAuth allowedCategories={["Manager", "Billing", "FO"]}>
+            <RequireAuth allowedCategories={["Manager", "Billing Clerk", "FO"]}>
               <Dashboard />
             </RequireAuth>
           }
@@ -56,7 +56,7 @@ function App() {
          <Route
           path="/bar"
           element={
-            <RequireAuth allowedCategories={["Manager", "Billing", "FO"]}>
+            <RequireAuth allowedCategories={["Manager", "Billing Clerk", "FO"]}>
               <BarChartExample />
             </RequireAuth>
           }
@@ -64,7 +64,7 @@ function App() {
         <Route
           path="/suppliers"
           element={
-            <RequireAuth allowedCategories={["Manager", "Billing", "FO"]}>
+            <RequireAuth allowedCategories={["Manager", "Billing Clerk", "FO"]}>
               <Suppliers />
             </RequireAuth>
           }
@@ -72,7 +72,7 @@ function App() {
         <Route
           path="/settings"
           element={
-            <RequireAuth allowedCategories={["Manager", "Billing", "FO"]}>
+            <RequireAuth allowedCategories={["Manager", "Billing Clerk", "FO"]}>
               <Settings />
             </RequireAuth>
           }
@@ -80,7 +80,7 @@ function App() {
         <Route
           path="/supplier-registration"
           element={
-            <RequireAuth allowedCategories={["Manager", "Billing", "FO"]}>
+            <RequireAuth allowedCategories={["Manager", "Billing Clerk", "FO"]}>
               <SupReg />
             </RequireAuth>
           }
@@ -89,7 +89,7 @@ function App() {
         <Route
           path="/supplier-profile/:Code"
           element={
-            <RequireAuth allowedCategories={["Manager", "Billing", "FO"]}>
+            <RequireAuth allowedCategories={["Manager", "Billing Clerk", "FO"]}>
               <SupProfile />
             </RequireAuth>
           }
@@ -105,7 +105,7 @@ function App() {
         <Route
           path="/supplier-delete/:id"
           element={
-            <RequireAuth allowedCategories={["Manager", "Billing", "FO"]}>
+            <RequireAuth allowedCategories={["Manager", "Billing Clerk", "FO"]}>
               <SupDelete />
             </RequireAuth>
           }
@@ -121,7 +121,7 @@ function App() {
         <Route
           path="/logout"
           element={
-            <RequireAuth allowedCategories={["Manager", "Billing", "FO"]}>
+            <RequireAuth allowedCategories={["Manager", "Billing Clerk", "FO"]}>
               <Logout/>
             </RequireAuth>
           }
@@ -137,7 +137,7 @@ function App() {
         <Route
           path="/billing"
           element={
-            <RequireAuth allowedCategories={["Manager", "Billing"]}>
+            <RequireAuth allowedCategories={["Manager", "Billing Clerk"]}>
               <Billing/>
             </RequireAuth>
           }
@@ -145,7 +145,7 @@ function App() {
         <Route
           path="/advance-success/:TransId"
           element={
-            <RequireAuth allowedCategories={["Manager", "Billing"]}>
+            <RequireAuth allowedCategories={["Manager", "Billing Clerk"]}>
               <AdvanceSuccess/>
             </RequireAuth>
           }
@@ -153,7 +153,7 @@ function App() {
          <Route
           path="/transaction/:TransId"
           element={
-            <RequireAuth allowedCategories={["Manager", "Billing"]}>
+            <RequireAuth allowedCategories={["Manager", "Billing Clerk"]}>
               <Transaction/>
             </RequireAuth>
           }
@@ -161,7 +161,7 @@ function App() {
         <Route
           path="/payment-final"
           element={
-            <RequireAuth allowedCategories={["Manager", "Billing"]}>
+            <RequireAuth allowedCategories={["Manager", "Billing Clerk"]}>
               <PaymentFinal/>
             </RequireAuth>
           }

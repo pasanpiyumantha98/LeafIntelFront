@@ -77,7 +77,7 @@ const navigate = useNavigate();
         
 
       const lotid = parseInt(Params.lotid);
-      const response = await axios.get(`/api/lotsfind/${lotid}`);
+      const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/lotsfind/${lotid}`);
 
       //set points
       let point =0;
@@ -164,11 +164,11 @@ const navigate = useNavigate();
 
     const lotid = parseInt(Params.lotid);
   
-    const response = await axios.post(`/samplecheck/update`, {grade:grade,lotid:lotid,points:points});
+    const response = await axios.post(`https://leafintelbackend-production.up.railway.app/samplecheck/update`, {grade:grade,lotid:lotid,points:points});
       
       
 
-    const Lot = await axios.get(`/api/lot/${lotid}`);
+    const Lot = await axios.get(`https://leafintelbackend-production.up.railway.app/api/lot/${lotid}`);
 
     const LotData = Lot.data;
 

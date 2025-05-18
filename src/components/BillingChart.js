@@ -25,7 +25,7 @@ useEffect(()=>{
   const loadData = async()=>{
 
 
-    const response = await axios.get(`/api/billing/chart`);
+    const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/billing/chart`);
 
     const sampleData = response.data;
 

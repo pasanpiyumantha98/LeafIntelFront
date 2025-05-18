@@ -32,7 +32,7 @@ export default function WebcamSampleCheck() {
 
     const loadData = async()=>{
 
-      const response2 = await axios.get(`/api/manager/phone`);
+      const response2 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/manager/phone`);
       
       const pn = response2.data.Phone;
 
@@ -98,7 +98,7 @@ export default function WebcamSampleCheck() {
             let body =`The lot ${lotid} has failed the sample check!`
             
             try {
-              const res = await axios.post('/whatsapp-send/go',
+              const res = await axios.post('https://leafintelbackend-production.up.railway.app/whatsapp-send/go',
                 { to, body }
               );
               
@@ -133,8 +133,8 @@ export default function WebcamSampleCheck() {
   };
 
   const submitGrade = async () => {
-    await axios.post(`/samplecheck/update`, { grade, lotid: parseInt(lotid), points });
-    const LotData = await axios.get(`/api/lot/${lotid}`);
+    await axios.post(`https://leafintelbackend-production.up.railway.app/samplecheck/update`, { grade, lotid: parseInt(lotid), points });
+    const LotData = await axios.get(`https://leafintelbackend-production.up.railway.app/api/lot/${lotid}`);
     setLot(LotData.data);
     setModalShow(true);
   };

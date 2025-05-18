@@ -25,13 +25,13 @@ function AdvanceSuccess(){
     const loadSupplier = async() =>{
 
         
-    const response = await axios.get(`/api/transaction/${TransId}`);
+    const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/transaction/${TransId}`);
 
     const trans = response.data;
 
     setTrans(trans);
 
-    const response2 = await axios.get(`/api/supplier/${response.data.SuppId}`);
+    const response2 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/supplier/${response.data.SuppId}`);
     
     const supplier = response2.data;
 

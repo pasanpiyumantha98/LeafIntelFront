@@ -30,7 +30,7 @@ function UserProfile(){
     const loadSupplier = async() =>{
 
         
-    const response = await axios.get(`/api/user/${StaffId}`);
+    const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/user/${StaffId}`);
 
     const user = response.data;
 

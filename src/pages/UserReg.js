@@ -44,7 +44,7 @@ function UserReg(){
   
   const pass ="123"  
 
-  const response = await axios.post(`/users-registration/go`, {fname:fname,lname:lname,city:city,email:email,phone:phone,nic:nic, uName:uname, gender:gender,accesslevel:accesslevel,pass:pass});
+  const response = await axios.post(`https://leafintelbackend-production.up.railway.app/users-registration/go`, {fname:fname,lname:lname,city:city,email:email,phone:phone,nic:nic, uName:uname, gender:gender,accesslevel:accesslevel,pass:pass});
   
   
   const stat=response.data;

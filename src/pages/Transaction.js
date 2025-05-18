@@ -25,7 +25,7 @@ function Transaction(){
     const loadSupplier = async() =>{
 
         
-    const response = await axios.get(`/api/transaction/${TransId}`);
+    const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/transaction/${TransId}`);
 
     const trans = response.data;
 

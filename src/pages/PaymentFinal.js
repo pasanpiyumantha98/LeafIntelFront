@@ -35,13 +35,13 @@ function PaymentFinal(){
     const loadSupplier = async() =>{
 
         
-    const response = await axios.get(`/api/supplier/${SuppId}`);
+    const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/supplier/${SuppId}`);
 
     const Supplier = response.data;
 
     setSupplier(Supplier);
 
-    const response2 = await axios.get(`/api/settings/rate`);
+    const response2 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/settings/rate`);
 
     const rate = response2.data;
 
@@ -120,7 +120,7 @@ useEffect(()=>{
 
   const MakePayment = async () => {
    
-      const response = await axios.post(`/api/supplier/makepay`, {
+      const response = await axios.post(`https://leafintelbackend-production.up.railway.app/api/supplier/makepay`, {
         SuppId,
         Payable,
         Month,
@@ -130,7 +130,7 @@ useEffect(()=>{
 
     const TransId = response.data;
 
-    const Trans = await axios.get(`/api/transaction/${TransId}`);
+    const Trans = await axios.get(`https://leafintelbackend-production.up.railway.app/api/transaction/${TransId}`);
 
     const Trans1 = Trans.data;
 

@@ -40,7 +40,7 @@ function Settings(){
 
     const sid = user.StaffId;
     
-    const response = await axios.get(`/api/user/${sid}`);
+    const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/user/${sid}`);
     
     const user2 = response.data;
     
@@ -53,38 +53,38 @@ function Settings(){
     setAccessL(user2.accessLevel);
     setStaffId(user2.StaffId);  
 
-    const response1 = await axios.get(`/api/settings/rate`);
+    const response1 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/settings/rate`);
 
     const set = response1.data;
 
     setRate(set.Value);
 
-    const response2 = await axios.get(`/api/settings/maxadvance`);
+    const response2 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/settings/maxadvance`);
 
     const set1 = response2.data;
 
     setMaxAdvance(set1.Value);
 
 
-    const response3 = await axios.get(`/api/settings/notice`);
+    const response3 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/settings/notice`);
 
     const set2 = response3.data;
 
     setNotice(set2.Value);
 
-    const response4 = await axios.get(`/api/settings/mgoal`);
+    const response4 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/settings/mgoal`);
 
     const set3 = response4.data;
 
     setGoal(set3.Value);
 
-    const response5 = await axios.get(`/api/settings/ygoal`);
+    const response5 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/settings/ygoal`);
 
     const set4 = response5.data;
 
     setyGoal(set4.Value);
 
-    const response6 = await axios.get(`/api/settings/dgoal`);
+    const response6 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/settings/dgoal`);
 
     const set5 = response6.data;
 
@@ -107,7 +107,7 @@ function Settings(){
   async function update(){
 
    
-      const response = await axios.post(`/settings/update`, {uname:uname,email:email,address:address,phone:phone,password:password,rate:rate, maxadvance:maxAdvance, notice:notice, staffid:staffId,goal:goal,ygoal:ygoal,dgoal:dgoal});
+      const response = await axios.post(`https://leafintelbackend-production.up.railway.app/settings/update`, {uname:uname,email:email,address:address,phone:phone,password:password,rate:rate, maxadvance:maxAdvance, notice:notice, staffid:staffId,goal:goal,ygoal:ygoal,dgoal:dgoal});
     
 
     setIsBlocked(true);

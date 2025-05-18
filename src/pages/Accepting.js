@@ -28,7 +28,7 @@ function Accepting(){
     async function submitAccForm()
     {
 
-        const response = await axios.post(`/accepting/first`,{SuppID:SuppId,Qty:Qty,Range:Range})
+        const response = await axios.post(`https://leafintelbackend-production.up.railway.app/accepting/first`,{SuppID:SuppId,Qty:Qty,Range:Range})
 
         const stat = response.data.message;
 
@@ -53,14 +53,14 @@ function Accepting(){
       const loadData = async()=>{
   
  
-        const response = await axios.get(`/api/lots/pending`);
+        const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/lots/pending`);
   
         const pending = response.data;
     
         setPending(pending);
 
 
-        const response2 = await axios.get(`/api/manager/phone`);
+        const response2 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/manager/phone`);
         
         const pn = response2.data.Phone;
 
@@ -80,7 +80,7 @@ function Accepting(){
     {
       
 
-        const response = await axios.get(`/api/transfer`)
+        const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/transfer`)
 
         const stat = response.data;
 
@@ -92,7 +92,7 @@ function Accepting(){
             let body =`The pending lots of ${Pending} Kg has been accepted to production!`
             
             try {
-              const res = await axios.post('/whatsapp-send/go',
+              const res = await axios.post('https://leafintelbackend-production.up.railway.app/whatsapp-send/go',
                 { to, body }
               );
               

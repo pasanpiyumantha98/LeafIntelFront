@@ -31,19 +31,19 @@ function Dashboard(){
     const loadTopSup = async()=>{
 
 
-      const response = await axios.get(`/api/suppliers/top4`);
+      const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/suppliers/top4`);
 
       const top = response.data;
 
       setTopSup(top);
 
-      const response3 = await axios.get(`/api/settings/notice`);
+      const response3 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/settings/notice`);
 
       const set2 = response3.data;
   
       setNotice(set2.Value);
 
-      const response4 = await axios.get(`/api/insights`);
+      const response4 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/insights`);
 
       const set3 = response4.data;
   
@@ -65,7 +65,7 @@ function Dashboard(){
     const loadtody = async() =>{
 
         
-    const response = await axios.get(`/api/lots/today`);
+    const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/lots/today`);
 
     const today = response.data;
 
@@ -84,7 +84,7 @@ useEffect(()=>{
   const loadyesterday = async() =>{
 
       
-  const response = await axios.get(`/api/lots/yesterday`);
+  const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/lots/yesterday`);
 
   const yesterday = response.data;
 
@@ -102,7 +102,7 @@ useEffect(()=>{
   const loadYear = async() =>{
 
       
-  const response = await axios.get(`/api/lots/year`);
+  const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/lots/year`);
 
   const year = response.data;
 
@@ -120,25 +120,25 @@ useEffect(()=>{
   const loadmonth = async() =>{
 
       
-  const response = await axios.get(`/api/lots/month`);
+  const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/lots/month`);
 
   const month = response.data;
 
   setMonth(month);
 
-  const response2 = await axios.get(`/api/settings/mgoal`);
+  const response2 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/settings/mgoal`);
 
   const goal = response2.data;
 
   setmGoal(goal.Value);
 
-  const response3 = await axios.get(`/api/settings/dgoal`);
+  const response3 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/settings/dgoal`);
 
   const dgoal = response3.data;
 
   setdGoal(dgoal.Value);
 
-  const response4 = await axios.get(`/api/settings/ygoal`);
+  const response4 = await axios.get(`https://leafintelbackend-production.up.railway.app/api/settings/ygoal`);
 
   const ygoal = response4.data;
 

@@ -29,7 +29,7 @@ useEffect(()=>{
   const loadData = async()=>{
 
 
-    const response = await axios.get(`/api/qty/chart`);
+    const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/qty/chart`);
 
     const sampleData = response.data;
 
