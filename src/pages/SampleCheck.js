@@ -214,7 +214,7 @@ export default function WebcamSampleCheck() {
                 {data && (
                   <div style={{ marginTop: 20 }}>
                     <p><strong>Grade:</strong> {data.class.toUpperCase()}</p>
-                    <p><strong>Confidence:</strong> {confidence}%</p>
+                  
                     <p><strong>Points:</strong> {points}</p>
                     <p>
                       {data.class === "a" && "This sample is good for production"}
