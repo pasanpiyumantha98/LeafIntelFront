@@ -47,7 +47,7 @@ useEffect(()=>{
 
   return (
     <div style={{ width: '100%', height: 400 }}>
-      <center><h4>Last 7 Days</h4></center>
+      <center><h4>Leaf Acceptence (Last 7 Days)</h4></center>
       <ResponsiveContainer>
         <BarChart data={sampleData}  margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
           <CartesianGrid strokeDasharray="3 3" />

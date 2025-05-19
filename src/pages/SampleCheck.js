@@ -46,12 +46,14 @@ export default function WebcamSampleCheck() {
 
   const API_URL = "https://us-central1-leaf-intel-model.cloudfunctions.net/predict";
 
+  //capture image and set for the image variable
   const capture = useCallback(() => {
     const screenshot = webcamRef.current.getScreenshot();
     setImage(screenshot);
     setData(null);
   }, [webcamRef]);
 
+  //triggered when image captured and show the preview
   useEffect(() => {
     if (image) {
       const objectUrl = URL.createObjectURL(dataURItoBlob(image));
@@ -61,6 +63,7 @@ export default function WebcamSampleCheck() {
     }
   }, [image]);
 
+  //conver base64 image file to binary file to append as form data
   const dataURItoBlob = (dataURI) => {
     const byteString = atob(dataURI.split(',')[1]);
     const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
@@ -72,6 +75,7 @@ export default function WebcamSampleCheck() {
     return new Blob([ab], { type: mimeString });
   };
 
+  // calling the api endpoint of model and sending the image as form data
   const sendFile = async () => {
     if (!image) return;
     setIsLoading(true);
@@ -82,9 +86,10 @@ export default function WebcamSampleCheck() {
       formData.append("file", blob, "webcam_capture.jpg");
 
       const res = await axios.post(API_URL, formData);
+
       if (res.status === 200) {
-        setData(res.data);
-        const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/lotsfind/${lotid}`);
+        setData(res.data);  // setting grade and other info
+        const response = await axios.get(`https://leafintelbackend-production.up.railway.app/api/lotsfind/${lotid}`);  // retriving lot detailes
         let point = 0;
         if (res.data.class === "a") point = response.data.AccQty * 25;
         else if (res.data.class === "b") point = response.data.AccQty * 15;
@@ -112,6 +117,7 @@ export default function WebcamSampleCheck() {
 
         } 
 
+        // checking the codition of if the lot weights more than 700 to perform the sample check twice
         if (response.data.AccQty < 700 || counter === 2) {
           setReady("ok");
           setGrade(res.data.class);
